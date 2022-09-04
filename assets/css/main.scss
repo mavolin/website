@@ -1,0 +1,501 @@
+@use "colors";
+@use "fonts";
+@use "general";
+@use "responsive";
+
+// ============================================================================
+// Header
+// ======================================================================================
+
+.l-header {
+  position: relative;
+
+  line-height: 1;
+
+  width: 100%;
+  background: #f8f8f8;
+
+  //noinspection CssOverwrittenProperties
+  height: 100vh;
+  //noinspection CssOverwrittenProperties
+  height: calc(var(--vh, 1vh) * 100);
+  // prevent an abrupt change in height on repaint
+  transition: height 0.3s;
+}
+
+// ===================================== Main Text ======================================
+
+.l-header-text {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+
+  margin: 0 8.4rem;
+
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.6rem 3.6rem;
+  align-items: center;
+
+  @include responsive.landscape-tablet {
+    margin: 0 6.4rem;
+  }
+
+  @include responsive.portrait-tablet {
+    grid-template-columns: 1fr;
+  }
+
+  @include responsive.landscape-phone-height {
+    top: 50%;
+  }
+
+  @include responsive.small-landscape-phone {
+    margin: 0 4.8rem;
+  }
+}
+
+.c-header-emoji {
+  font-size: 8.6rem;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: wave .4s ease .4s, wave .6s ease .8s;
+  }
+
+  &:hover {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: wave .4s ease, wave .6s ease .4s;
+      animation-play-state: running;
+    }
+  }
+
+  @include responsive.landscape-tablet {
+    font-size: 6.4rem;
+  }
+
+  @include responsive.portrait-tablet {
+    display: none;
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(30deg);
+  }
+}
+
+.c-heading-primary {
+  font-weight: 800;
+  font-size: 9.6rem;
+
+  @include general.gradient-text(#4216C9, #ff0bb2, 225deg);
+
+
+  @include responsive.landscape-tablet {
+    font-size: 7.2rem;
+  }
+
+  @include responsive.small-landscape-phone {
+    font-size: 6.4rem;
+  }
+
+  @include responsive.portrait-phone {
+    font-size: 5.2rem;
+  }
+
+  &__breaker {
+    display: none;
+
+    @include responsive.small-landscape-phone {
+      display: inline;
+    }
+  }
+}
+
+.l-header-details {
+  grid-column: 2;
+
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  gap: 0.9rem;
+
+  height: 5.2rem;
+
+  font-family: general.$monospace, monospace;
+  font-size: 1.8rem;
+  font-weight: 500;
+
+  @include responsive.landscape-tablet {
+    font-size: 1.6rem;
+    height: 4.8rem;
+  }
+
+  @include responsive.portrait-tablet {
+    grid-column: 1;
+    height: 3.6rem;
+  }
+
+  @include responsive.landscape-phone {
+    margin-top: 1.2rem;
+
+    flex-direction: column;
+    align-items: start;
+    gap: 0.4rem;
+  }
+}
+
+.c-header-detail {
+  // little hack so that multiple spans arent rendered as individual spaces
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  &, & a:link, & a:visited {
+    --ionicon-stroke-width: 5.2rem;
+    color: colors.$grey10;
+    white-space: nowrap;
+  }
+
+  &__icon {
+    &--list-only {
+      display: none;
+
+      @include responsive.landscape-phone {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__text {
+    &--list-only {
+      display: none;
+
+      @include responsive.landscape-phone {
+        display: inline-block;
+      }
+    }
+
+    &--hovered {
+      color: colors.$purple9;
+      display: inline-block;
+
+      width: 0;
+      transition: all .4s ease-out;
+      white-space: pre;
+      overflow: hidden;
+
+      @include responsive.small-landscape-tablet {
+        display: none;
+      }
+
+      @include responsive.landscape-phone {
+        width: auto;
+      }
+    }
+
+    &--preserve-color {
+      color: colors.$grey10;
+    }
+  }
+
+  &__separator {
+    @include responsive.landscape-phone {
+      display: none;
+    }
+  }
+}
+
+// ====================================== Socials =======================================
+
+.l-socials {
+  font-family: general.$monospace;
+
+  position: absolute;
+  top: 3.6rem;
+  right: 6.4rem;
+
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+
+  @include responsive.landscape-tablet {
+    gap: 2.8rem;
+  }
+
+  @include responsive.landscape-phone {
+    top: 2.8rem;
+    right: 4.2rem;
+    gap: 1.8rem;
+  }
+}
+
+.c-social {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  &__icon {
+    font-size: 2rem;
+    color: colors.$grey10;
+
+    @include responsive.landscape-tablet {
+      font-size: 1.8rem;
+    }
+
+    @include responsive.landscape-phone {
+      font-size: 2.8rem;
+    }
+  }
+
+  &__text {
+    font-size: 1.6rem;
+
+    @include responsive.landscape-tablet {
+      font-size: 1.5rem;
+    }
+
+    @include responsive.landscape-phone {
+      display: none;
+    }
+  }
+}
+
+// ==================================== Next Button =====================================
+
+.c-about-me-link {
+  &:link, &:visited {
+    position: absolute;
+    bottom: 6.4rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+
+    text-decoration: none;
+
+    @include responsive.landscape-tablet {
+      bottom: 4.2rem;
+      gap: 0.7rem;
+    }
+
+    @include responsive.landscape-phone-height {
+      bottom: 2.8rem;
+    }
+
+    @include responsive.landscape-phone {
+      bottom: 2.4rem;
+    }
+  }
+
+  &__text {
+    font-family: general.$monospace;
+    font-weight: 500;
+    font-size: 2rem;
+
+    @include responsive.landscape-tablet {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__icon {
+    height: 2.8rem;
+    stroke-width: 4.2rem;
+
+    transition: transform .3s ease-out;
+
+    @include responsive.landscape-tablet {
+      height: 2.4rem;
+    }
+  }
+
+  &:hover &__icon {
+    transform: translateY(.4rem);
+
+    transition: transform .2s ease-in;
+  }
+}
+
+// ============================================================================
+// Sections
+// ======================================================================================
+
+.l-section {
+  max-width: 125rem;
+
+  margin: 8rem auto;
+
+  padding: 0 12rem;
+
+  @include responsive.small-landscape-tablet {
+    padding: 0 8rem;
+  }
+
+  @include responsive.portrait-tablet {
+    padding: 0 6rem;
+  }
+
+  @include responsive.small-landscape-phone {
+    padding: 0 4rem;
+  }
+}
+
+// ============================================================================
+// About Me
+// ======================================================================================
+
+.l-section--about-me {
+  .c-heading-secondary {
+    @include general.gradient-text(#762AB0, #556BDA, 45deg)
+  }
+}
+
+// ============================================================================
+// Projects
+// ======================================================================================
+
+.l-section--projects {
+  .c-heading-secondary {
+    @include general.gradient-text(#556BDA, #EF5FFF, 150deg)
+  }
+}
+
+.c-projects-introduction {
+  margin-bottom: 3.2rem;
+}
+
+.l-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  gap: 2.8rem;
+}
+
+.c-project {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto 1fr;
+  align-items: start;
+  justify-content: start;
+
+  box-shadow: 0 0 20px 10px #00000010;
+
+  padding: 3.6rem 3.8em;
+  border-radius: 15px;
+
+  transition: all .3s ease-in;
+
+  &:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 5px 40px 10px #00000010;
+  }
+
+  &__author-img {
+    display: block;
+    align-self: center;
+    height: 2.4rem;
+    margin-right: 1.2rem;
+
+    border-radius: 50%;
+  }
+
+  &__title {
+    display: inline-block;
+    align-self: center;
+
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &__author-img, &__title {
+    margin-bottom: 1.2rem;
+  }
+
+  &__tags {
+    grid-column: 1 / 3;
+    margin-bottom: 2.8rem;
+  }
+
+  &__text {
+    grid-column: 1 / 3;
+
+    p {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.c-project--1 .c-project__title {
+  &, a:link, a:visited {
+    @include general.gradient-text(#754B73, #906FDD, 320deg);
+    text-decoration: none;
+  }
+}
+
+.c-project--2 .c-project__title {
+  &, a:link, a:visited {
+    @include general.gradient-text(#906FDD, #3C3CD6, 116deg);
+    text-decoration: none;
+  }
+}
+
+.c-project--3 .c-project__title {
+  &, a:link, a:visited {
+    @include general.gradient-text(#3C3CD6, #43A3DF, 283deg);
+    text-decoration: none;
+  }
+}
+
+.l-tag-row {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.c-tag {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center;
+
+  //background: colors.$grey1;
+  border: 1px solid colors.$grey8;
+  padding: 0.4rem .8rem;
+  border-radius: 100px;
+
+  //font-family: general.$monospace;
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: 500;
+
+  @include responsive.portrait-phone {
+    font-size: 1.1rem;
+  }
+
+
+  &:link, &:visited {
+    text-decoration: underline;
+    text-decoration-thickness: 1pt;
+    text-decoration-style: dotted;
+  }
+}
+
+.c-tag__icon {
+  height: 1.3rem;
+  width: 1.3rem;
+  --ionicon-stroke-width: 3.65em;
+
+  &--go {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+
+    background: #00ADD8;
+  }
+}

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>It's Maxi</title>
 
     <meta content="width=device-width, initial-scale=1" name="viewport">
 
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="120x120">
+    <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+    <link href="/site.webmanifest" rel="manifest">
+    <link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+    <meta content="#da532c" name="msapplication-TileColor">
+    <meta content="#ffffff" name="theme-color">
 
     <link href="/assets/css/main.css" rel="stylesheet">
     <script nomodule src="/assets/vendor/ionicons/ionicons.js"></script>
@@ -22,13 +22,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // You know my birthday now, so I expect a card next year!
-            const birthday = new Date(2003, 5, 9)
+            const birthday = new Date(2003, 4, 9)
             const diff = Date.now() - birthday.getTime()
 
             // if someone reads this, leap years don't exist
             const age = Math.abs(new Date(diff).getUTCFullYear() - 1970)
 
-            document.querySelectorAll('.my-age')
+            document.querySelectorAll('.js-age')
                 .forEach((ageEl) => ageEl.textContent = age.toString())
         })
     </script>
@@ -45,7 +45,7 @@
                 + 1 // to one-indexed semesters
             )
 
-            document.querySelectorAll('.my-semester')
+            document.querySelectorAll('.js-semester')
                 .forEach((semesterEl) => semesterEl.textContent = ordinalize(numSemester))
         })
     </script>
@@ -60,273 +60,277 @@
     </script>
     <script>
         function ordinalize(num) {
-            switch (num) {
+            switch (num % 10) {
                 case 1:
-                    return '1st'
+                    return `${num}st`
                 case 2:
-                    return '2nd'
+                    return `${num}nd`
                 case 3:
-                    return '3rd'
+                    return `${num}rd`
                 default:
                     return `${num}th`
             }
         }
     </script>
-  </head>
-  <body>
-    <header class="l-header">
-      <div class="l-header-text">
+</head>
+<body>
+<header class="l-header">
+    <div class="l-header-text">
         <div class="c-header-emoji">👋</div>
         <h1 class="c-heading-primary">Hi,<br class="c-heading-primary__breaker"> I'm Maxi!</h1>
 
         <div class="l-header-details">
-          <div class="c-header-detail">
-            <ion-icon class="c-header-detail__icon c-header-detail__icon--list-only" name="person-outline"></ion-icon>
-            <span class="c-header-detail__text c-header-detail__text--list-only">&nbsp;</span>
-            <span class="c-header-detail__text js-my-age">19</span>
-            <span class="c-header-detail__text">&nbsp;</span>
-            <span class="c-header-detail__text">y</span>
-            <span class="c-header-detail__text c-header-detail__text--hovered c-header-detail__text--preserve-color">ears</span>
-            <span class="c-header-detail__text">/</span>
-            <span class="c-header-detail__text">o</span>
-            <span class="c-header-detail__text c-header-detail__text--hovered c-header-detail__text--preserve-color">ld</span>
-          </div>
+            <div class="c-header-detail">
+                <ion-icon class="c-header-detail__icon c-header-detail__icon--list-only"
+                          name="person-outline"></ion-icon>
+                <span class="c-header-detail__text c-header-detail__text--list-only">&nbsp;</span>
+                <span class="c-header-detail__text js-age">19</span>
+                <span class="c-header-detail__text">&nbsp;</span>
+                <span class="c-header-detail__text">y</span>
+                <span class="c-header-detail__text c-header-detail__text--hovered c-header-detail__text--preserve-color">ears</span>
+                <span class="c-header-detail__text">/</span>
+                <span class="c-header-detail__text">o</span>
+                <span class="c-header-detail__text c-header-detail__text--hovered c-header-detail__text--preserve-color">ld</span>
+            </div>
 
-          <span class="c-header-detail__separator">|</span>
+            <span class="c-header-detail__separator">|</span>
 
-          <div class="c-header-detail">
-            <ion-icon class="c-header-detail__icon c-header-detail__icon--list-only"
-                      name="chatbubble-ellipses-outline"></ion-icon>
-            <span class="c-header-detail__text c-header-detail__text--list-only">&nbsp;</span>
-            <span class="c-header-detail__text--hovered">I go by&nbsp;</span>
-            <span class="c-header-detail__text">he/him</span>
-          </div>
+            <div class="c-header-detail">
+                <ion-icon class="c-header-detail__icon c-header-detail__icon--list-only"
+                          name="chatbubble-ellipses-outline"></ion-icon>
+                <span class="c-header-detail__text c-header-detail__text--list-only">&nbsp;</span>
+                <span class="c-header-detail__text--hovered">I go by&nbsp;</span>
+                <span class="c-header-detail__text">he/him</span>
+            </div>
 
-          <span class="c-header-detail__separator">|</span>
+            <span class="c-header-detail__separator">|</span>
 
-          <div class="c-header-detail">
-            <ion-icon class="c-header-detail__icon" name="home-outline"></ion-icon>
-            <span class="c-header-detail__text">&nbsp;</span>
-            <span class="c-header-detail__text c-header-detail__text--hovered">Living in&nbsp;</span>
-            <span class="c-header-detail__text">Oldenburg, DE</span>
-          </div>
+            <div class="c-header-detail">
+                <ion-icon class="c-header-detail__icon" name="home-outline"></ion-icon>
+                <span class="c-header-detail__text">&nbsp;</span>
+                <span class="c-header-detail__text c-header-detail__text--hovered">Living in&nbsp;</span>
+                <span class="c-header-detail__text">Oldenburg, DE</span>
+            </div>
 
-          <!--          <span class="c-header-detail__separator">|</span>-->
+            <!--          <span class="c-header-detail__separator">|</span>-->
 
-          <!--          <div class="c-header-detail">-->
-          <!--            <ion-icon class="c-header-detail__icon" name="school-outline"></ion-icon>-->
-          <!--            <span class="c-header-detail__text">&nbsp;</span>-->
-          <!--            <span class="c-header-detail__text c-header-detail__text--hovered">Studying CompSci @&nbsp;</span>-->
-          <!--            <span class="c-header-detail__text">University of Hamburg</span>-->
-          <!--          </div>-->
+            <!--          <div class="c-header-detail">-->
+            <!--            <ion-icon class="c-header-detail__icon" name="school-outline"></ion-icon>-->
+            <!--            <span class="c-header-detail__text">&nbsp;</span>-->
+            <!--            <span class="c-header-detail__text c-header-detail__text--hovered">Studying CompSci @&nbsp;</span>-->
+            <!--            <span class="c-header-detail__text">University of Hamburg</span>-->
+            <!--          </div>-->
 
-          <span class="c-header-detail__separator">|</span>
+            <span class="c-header-detail__separator">|</span>
 
-          <div class="c-header-detail">
-            <ion-icon class="c-header-detail__icon" name="briefcase-outline"></ion-icon>
-            <span class="c-header-detail__text">&nbsp;</span>
-            <span class="c-header-detail__text c-header-detail__text--hovered">Full Stack Dev @&nbsp;</span>
-            <a class="c-header-detail__text" href="https://x-lan.de" target="_blank">X-LAN</a>
-          </div>
+            <div class="c-header-detail">
+                <ion-icon class="c-header-detail__icon" name="briefcase-outline"></ion-icon>
+                <span class="c-header-detail__text">&nbsp;</span>
+                <span class="c-header-detail__text c-header-detail__text--hovered">Full Stack Dev @&nbsp;</span>
+                <a class="c-header-detail__text" href="https://x-lan.de" target="_blank">X-LAN</a>
+            </div>
 
-          <script>
-              const collapseHoverDetailDelay = 150;
+            <script>
+                (() => {
+                    const collapseHoverDetailDelay = 150;
 
-              let hoverDetailsTimeout;
-              const headerDetailsEls = document.querySelectorAll('.c-header-detail')
+                    let hoverDetailsTimeout;
+                    const headerDetailsEls = document.querySelectorAll('.c-header-detail')
 
-              function collapse(hoverDetailEl) {
-                  hoverDetailEl.style.width = ''
-              }
+                    function collapse(hoverDetailEl) {
+                        hoverDetailEl.style.width = ''
+                    }
 
-              function collapseHoverDetails(except) {
-                  headerDetailsEls.forEach((el) => {
-                      if (el === except) {
-                          return;
-                      }
+                    function collapseHoverDetails(except) {
+                        headerDetailsEls.forEach((el) => {
+                            if (el === except) {
+                                return;
+                            }
 
-                      el.querySelectorAll('.c-header-detail__text--hovered')
-                          .forEach(collapse)
-                  })
-              }
+                            el.querySelectorAll('.c-header-detail__text--hovered')
+                                .forEach(collapse)
+                        })
+                    }
 
-              function expand(hoverDetailEl) {
-                  if (hoverDetailEl.style.width !== '') {
-                      return
-                  }
+                    function expand(hoverDetailEl) {
+                        if (hoverDetailEl.style.width !== '') {
+                            return
+                        }
 
-                  hoverDetailEl.style.width = (hoverDetailEl.scrollWidth + 1) + 'px'
-              }
+                        hoverDetailEl.style.width = (hoverDetailEl.scrollWidth + 1) + 'px'
+                    }
 
-              function expandHoverDetailsIn(detailsEl) {
-                  detailsEl.querySelectorAll('.c-header-detail__text--hovered')
-                      .forEach(expand)
-              }
+                    function expandHoverDetailsIn(detailsEl) {
+                        detailsEl.querySelectorAll('.c-header-detail__text--hovered')
+                            .forEach(expand)
+                    }
 
-              function onDetailMouseover(detailEl) {
-                  clearTimeout(hoverDetailsTimeout)
+                    function onDetailMouseover(detailEl) {
+                        clearTimeout(hoverDetailsTimeout)
 
-                  expandHoverDetailsIn(detailEl)
-                  hoverDetailsTimeout = setTimeout(() =>
-                      collapseHoverDetails(detailEl), collapseHoverDetailDelay)
-              }
+                        expandHoverDetailsIn(detailEl)
+                        hoverDetailsTimeout = setTimeout(() =>
+                            collapseHoverDetails(detailEl), collapseHoverDetailDelay)
+                    }
 
-              headerDetailsEls.forEach((detailEl) => {
-                  if (detailEl.querySelector('.c-header-detail__text--hovered') === null) {
-                      return
-                  }
+                    headerDetailsEls.forEach((detailEl) => {
+                        if (detailEl.querySelector('.c-header-detail__text--hovered') === null) {
+                            return
+                        }
 
-                  detailEl.addEventListener('mouseover', () => onDetailMouseover(detailEl))
-              });
-          </script>
+                        detailEl.addEventListener('mouseover', () => onDetailMouseover(detailEl))
+                    })
+                })();
+            </script>
         </div>
-      </div>
+    </div>
 
-      <aside class="l-socials">
+    <aside class="l-socials">
         <a class="c-social" href="https://github.com/mavolin">
-          <ion-icon class="c-social__icon" name="logo-github"></ion-icon>
-          <span class="c-social__text">@mavolin</span>
+            <ion-icon class="c-social__icon" name="logo-github"></ion-icon>
+            <span class="c-social__text">@mavolin</span>
         </a>
         <a class="c-social" href="mailto:hi@mavolin.co">
-          <ion-icon class="c-social__icon" name="mail"></ion-icon>
-          <span class="c-social__text">hi@mavolin.co</span>
+            <ion-icon class="c-social__icon" name="mail"></ion-icon>
+            <span class="c-social__text">hi@mavolin.co</span>
         </a>
         <a class="c-social" href="https://instagram.com/maximilian_vl">
-          <ion-icon class="c-social__icon" name="logo-instagram"></ion-icon>
-          <span class="c-social__text">@maximilian_vl</span>
+            <ion-icon class="c-social__icon" name="logo-instagram"></ion-icon>
+            <span class="c-social__text">@maximilian_vl</span>
         </a>
-      </aside>
+    </aside>
 
-      <a class="c-about-me-link" href="#about-me">
+    <a class="c-about-me-link" href="#about-me">
         <span class="c-about-me-link__text">about me</span>
         <!-- Ionicon's stroke-width property doesn't work for chevron-down -->
         <svg class="c-about-me-link__icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-          <path d="M112 184l144 144 144-144" fill="none" stroke="currentColor" stroke-linecap="round"
-                stroke-linejoin="round"/>
+            <path d="M112 184l144 144 144-144" fill="none" stroke="currentColor" stroke-linecap="round"
+                  stroke-linejoin="round"/>
         </svg>
-      </a>
-    </header>
+    </a>
+</header>
 
-    <section class="l-section l-section--about-me" id="about-me">
-      <h2 class="c-heading-secondary">about me</h2>
+<section class="l-section l-section--about-me" id="about-me">
+    <h2 class="c-heading-secondary">about me</h2>
 
-      <p>
+    <p>
         Hey there!
         I'm Maxi, and I'm working as a full stack developer for
         <a class="link-highlight" href="https://x-lan.de">X-LAN</a>,
         where I develop all sorts of things, starting with small websites to larger-scale web-apps.
-      </p>
+    </p>
 
-      <p>
+    <p>
         In my free time I love to read, play the occasional round of DOTA or Valorant,
         or tinker with a new language or framework, especially Go-related stuff.
-      </p>
-      <p>Also, I have a passionate hate for Java, please don't ever make me use it!</p>
-    </section>
+    </p>
+    <p>Also, I have a passionate hate for Java, please don't ever make me use it!</p>
+</section>
 
-    <section class="l-section l-section--projects" id="projects">
-      <h2 class="c-heading-secondary">projects</h2>
+<section class="l-section l-section--projects" id="projects">
+    <h2 class="c-heading-secondary">projects</h2>
 
-      <div class="c-projects-introduction">
+    <div class="c-projects-introduction">
         <p>
-          I'm usually always working on something, be it public or private.
-          Here are some of my public projects.
+            I'm usually always working on something, be it public or private.
+            Here are some of my public projects.
         </p>
-      </div>
+    </div>
 
-      <div class="l-projects">
+    <div class="l-projects">
         <div class="c-project c-project--1">
-          <img alt="" class="c-project__author-img" src="assets/img/avatars/mavolin.png">
-          <span class="c-project__title"><a href="https://github.com/mavolin/corgi" target="_blank">corgi</a></span>
-          <div class="c-project__tags l-tag-row">
+            <img alt="" class="c-project__author-img" src="assets/img/avatars/mavolin.png">
+            <span class="c-project__title"><a href="https://github.com/mavolin/corgi" target="_blank">corgi</a></span>
+            <div class="c-project__tags l-tag-row">
             <span class="c-tag">
               <span class="c-tag__icon c-tag__icon--go"></span>
               <span class="c-tag__text">Go</span>
             </span>
-            <a class="c-tag" href="https://github.com/mavolin/corgi" target="_blank">
-              <ion-icon class="c-tag-icon" name="logo-github"></ion-icon>
-              <span class="c-tag__text">GitHub</span>
-            </a>
-            <a class="c-tag" href="https://mavolin.gitbook.io/corgi" target="_blank">
-              <ion-icon class="c-tag__icon" name="book-outline"></ion-icon>
-              <span class="c-tag__text">GitBook</span>
-            </a>
-          </div>
-          <div class="c-project__text">
-            <p>
-              Corgi is an HTML template engine for Go.
-              Thanks to its pug-like syntax, templates are highly readable,
-              while also expanding upon pug's capabilities.
-            </p>
-            <p>
-              Templates are compiled into Go code, which makes execution speed fast,
-              while also benefiting from compiler checks for all Go expressions used inside it.
-            </p>
-            <p>
-              Currently, I use corgi is used at X-LAN, as well as for
-              <a href="https://github.com/mavolin/sueno-dict">sueno-dict</a>, a dictionary for a
-              natural language I wrote for fun.
-            </p>
-          </div>
+                <a class="c-tag" href="https://github.com/mavolin/corgi" target="_blank">
+                    <ion-icon class="c-tag-icon" name="logo-github"></ion-icon>
+                    <span class="c-tag__text">GitHub</span>
+                </a>
+                <a class="c-tag" href="https://mavolin.gitbook.io/corgi" target="_blank">
+                    <ion-icon class="c-tag__icon" name="book-outline"></ion-icon>
+                    <span class="c-tag__text">GitBook</span>
+                </a>
+            </div>
+            <div class="c-project__text">
+                <p>
+                    Corgi is an HTML template engine for Go.
+                    Thanks to its pug-like syntax, templates are highly readable,
+                    while also expanding upon pug's capabilities.
+                </p>
+                <p>
+                    Templates are compiled into Go code, which makes execution speed fast,
+                    while also benefiting from compiler checks for all Go expressions used inside it.
+                </p>
+                <p>
+                    Currently, I use corgi is used at X-LAN, as well as for
+                    <a href="https://github.com/mavolin/sueno-dict">sueno-dict</a>, a dictionary for a
+                    natural language I wrote for fun.
+                </p>
+            </div>
         </div>
         <div class="c-project c-project--2">
-          <img alt="" class="c-project__author-img" src="assets/img/avatars/mavolin.png">
-          <span class="c-project__title"><a href="https://github.com/mavolin/dismock" target="_blank">dismock</a></span>
-          <div class="c-project__tags l-tag-row">
+            <img alt="" class="c-project__author-img" src="assets/img/avatars/mavolin.png">
+            <span class="c-project__title"><a href="https://github.com/mavolin/dismock"
+                                              target="_blank">dismock</a></span>
+            <div class="c-project__tags l-tag-row">
             <span class="c-tag">
               <span class="c-tag__icon c-tag__icon--go"></span>
               <span class="c-tag__text">Go</span>
             </span>
-            <a class="c-tag" href="https://github.com/mavolin/dismock" target="_blank">
-              <ion-icon class="c-tag__icon" name="logo-github"></ion-icon>
-              <span class="c_tag__text">GitHub</span>
-            </a>
-          </div>
-          <div class="c-project__text">
-            <p>
-              Dismock is a helper for mocking requests to the Discord API.
-            </p>
-            <p>
-              Most of dismock's source code is generated by parsing the Go source of
-              of <a href="https://github.com/diamondburned/arikawa">arikawa's</a>
-              API methods and generating mocks from them.
-              Only more complicated API requests are handwritten.
-            </p>
-            <p>
-              This keeps maintenance minimal and makes keeping up-to-date incredibly easy.
-            </p>
-          </div>
+                <a class="c-tag" href="https://github.com/mavolin/dismock" target="_blank">
+                    <ion-icon class="c-tag__icon" name="logo-github"></ion-icon>
+                    <span class="c_tag__text">GitHub</span>
+                </a>
+            </div>
+            <div class="c-project__text">
+                <p>
+                    Dismock is a helper for mocking requests to the Discord API.
+                </p>
+                <p>
+                    Most of dismock's source code is generated by parsing the Go source of
+                    of <a href="https://github.com/diamondburned/arikawa">arikawa's</a>
+                    API methods and generating mocks from them.
+                    Only more complicated API requests are handwritten.
+                </p>
+                <p>
+                    This keeps maintenance minimal and makes keeping up-to-date incredibly easy.
+                </p>
+            </div>
         </div>
         <div class="c-project c-project--3">
-          <img alt="" class="c-project__author-img" src="assets/img/avatars/mavolin.png">
-          <span class="c-project__title"><a href="https://github.com/mavolin/adam" target="_blank">adam</a></span>
-          <div class="c-project__tags l-tag-row">
+            <img alt="" class="c-project__author-img" src="assets/img/avatars/mavolin.png">
+            <span class="c-project__title"><a href="https://github.com/mavolin/adam" target="_blank">adam</a></span>
+            <div class="c-project__tags l-tag-row">
             <span class="c-tag">
               <span class="c-tag__icon c-tag__icon--go"></span>
               <span class="c-tag__text">Go</span>
             </span>
-            <a class="c-tag" href="https://github.com/mavolin/adam" target="_blank">
-              <ion-icon class="c-tag__icon" name="logo-github"></ion-icon>
-              <span class="c-tag__text">GitHub</span>
-            </a>
-            <a class="c-tag" href="https://go-adam.gitbook.io/adam" target="_blank">
-              <ion-icon class="c-tag__icon" name="book-outline"></ion-icon>
-              <span class="c-tag__text">GitBook</span>
-            </a>
-          </div>
-          <div class="c-project__text">
-            <p>
-              Adam was a Discord bot framework with an extensive list of features.
-              Amongst other things, it featured localization, command grouping,
-              and an extensive set of utilities.
-            </p>
-            <p>
-              Unfortunately, shortly after completion it became obsolete with Discord's release of slash commands
-              and the subsequent restrictions around the 'Read Messages' Intent.
-            </p>
-          </div>
+                <a class="c-tag" href="https://github.com/mavolin/adam" target="_blank">
+                    <ion-icon class="c-tag__icon" name="logo-github"></ion-icon>
+                    <span class="c-tag__text">GitHub</span>
+                </a>
+                <a class="c-tag" href="https://go-adam.gitbook.io/adam" target="_blank">
+                    <ion-icon class="c-tag__icon" name="book-outline"></ion-icon>
+                    <span class="c-tag__text">GitBook</span>
+                </a>
+            </div>
+            <div class="c-project__text">
+                <p>
+                    Adam was a Discord bot framework with an extensive list of features.
+                    Amongst other things, it featured localization, command grouping,
+                    and an extensive set of utilities.
+                </p>
+                <p>
+                    Unfortunately, shortly after completion it became obsolete with Discord's release of slash commands
+                    and the subsequent restrictions around the 'Read Messages' Intent.
+                </p>
+            </div>
         </div>
-      </div>
-    </section>
-  </body>
+    </div>
+</section>
+</body>
 </html>

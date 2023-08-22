@@ -112,14 +112,14 @@
                 <span class="c-header-detail__text">Oldenburg, DE</span>
             </div>
 
-            <!--          <span class="c-header-detail__separator">|</span>-->
+          <span class="c-header-detail__separator">|</span>
 
-            <!--          <div class="c-header-detail">-->
-            <!--            <ion-icon class="c-header-detail__icon" name="school-outline"></ion-icon>-->
-            <!--            <span class="c-header-detail__text">&nbsp;</span>-->
-            <!--            <span class="c-header-detail__text c-header-detail__text--hovered">Studying CompSci @&nbsp;</span>-->
-            <!--            <span class="c-header-detail__text">University of Hamburg</span>-->
-            <!--          </div>-->
+          <div class="c-header-detail">
+            <ion-icon class="c-header-detail__icon" name="school-outline"></ion-icon>
+            <span class="c-header-detail__text">&nbsp;</span>
+            <span class="c-header-detail__text c-header-detail__text--hovered">Studying CompSci @&nbsp;</span>
+            <span class="c-header-detail__text">University of Hamburg</span>
+          </div>
 
             <span class="c-header-detail__separator">|</span>
 
@@ -229,7 +229,7 @@
     <div class="c-projects-introduction">
         <p>
             I'm usually always working on something, be it public or private.
-            Here are some of my public projects.
+            Here is a handpicked&trade; selection of my public projects.
         </p>
     </div>
 
@@ -254,15 +254,15 @@
             <div class="c-project__text">
                 <p>
                     Corgi is an HTML template engine for Go.
-                    Thanks to its pug-like syntax, templates are highly readable,
+                    Thanks to its pug-like syntax, templates are very readable,
                     while also expanding upon pug's capabilities.
                 </p>
                 <p>
                     Templates are compiled into Go code, which makes execution speed fast,
-                    while also benefiting from compiler checks for all Go expressions used inside it.
+                    and also benefiting from compiler checks for all Go expressions used inside it.
                 </p>
                 <p>
-                    Currently, I use corgi is used at X-LAN, as well as for
+                    Currently, corgi is used at X-LAN, as well as for
                     <a href="https://github.com/mavolin/sueno-dict">sueno-dict</a>, a dictionary for a
                     natural language I wrote for fun.
                 </p>
@@ -323,6 +323,57 @@
                 <p>
                     Unfortunately, shortly after completion it became obsolete with Discord's release of slash commands
                     and the subsequent restrictions around the 'Read Messages' Intent.
+                </p>
+            </div>
+        </div>
+        <div class="c-project c-project--2">
+            <img alt="" class="c-project__author-img" src="assets/img/avatars/mavolin.png">
+            <span class="c-project__title"><a href="https://github.com/mavolin/corgi" target="_blank">standards</a></span>
+            <div class="c-project__tags l-tag-row">
+            <span class="c-tag">
+              <span class="c-tag__icon c-tag__icon--go"></span>
+              <span class="c-tag__text">Go</span>
+            </span>
+                <a class="c-tag" href="https://github.com/mavolin/standards" target="_blank">
+                    <ion-icon class="c-tag-icon" name="logo-github"></ion-icon>
+                    <span class="c-tag__text">GitHub</span>
+                </a>
+            </div>
+            <div class="c-project__text">
+                <p>
+                    Standards is a collection of parsers and validators for different standards,
+                    amongst other things IBANs, BICs, and German Health Insurance Numbers.
+                </p>
+                <p>
+                    I created it out of frustration with other parsers/validators for Go (and the lack thereof),
+                    which were either unidiomatic or half-heartedly implemented.
+                    By using the same pattern for each standard, importing a standard does not require a new look in the
+                    docs since the same set of base functions and methods is always implemented.
+                </p>
+            </div>
+        </div>
+        <div class="c-project c-project--1">
+            <img alt="" class="c-project__author-img" src="assets/img/avatars/mavolin.png">
+            <span class="c-project__title"><a href="https://github.com/mavolin/go-htmx" target="_blank">go-htmx</a></span>
+            <div class="c-project__tags l-tag-row">
+            <span class="c-tag">
+              <span class="c-tag__icon c-tag__icon--go"></span>
+              <span class="c-tag__text">Go</span>
+            </span>
+                <a class="c-tag" href="https://github.com/mavolin/go-htmx" target="_blank">
+                    <ion-icon class="c-tag-icon" name="logo-github"></ion-icon>
+                    <span class="c-tag__text">GitHub</span>
+                </a>
+            </div>
+            <div class="c-project__text">
+                <p>
+                    go-htmx is a utility for reading and setting htmx request and response headers.
+                </p>
+                <p>
+                    Other Go packages implemented htmx headers only on a very low level, leaving things like JSON
+                    marshalling to the user.
+                    Since I wanted to save myself the hassle of writing boilerplate each time I needed to set a header,
+                    go-htmx was made.
                 </p>
             </div>
         </div>
